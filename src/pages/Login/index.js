@@ -72,11 +72,12 @@ class Login extends React.Component {
               </div>
             </div>
           </form>
-          <a href="/oauth/google">Log in with Google</a> &nbsp;&nbsp;&nbsp;
-    <a href="/oauth/twitter">Log in with twitter</a>
+          <a href="/oauth/google">Log in with Google</a> &nbsp;
+          <a href="/oauth/facebook">Log in with twitter</a> &nbsp;
+          <a href="/oauth/twitter">Log in with twitter</a> &nbsp;
         </div>
       </div>
-      
+
     );
   }
 }

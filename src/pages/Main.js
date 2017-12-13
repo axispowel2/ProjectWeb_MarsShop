@@ -1,27 +1,27 @@
 import React, { Component } from 'react';
 import localStorage from 'localStorage'
+import Header from './Header'
+import Footer from './Footer'
 
 class Main extends Component {
-
-      signOut = event => {
-        localStorage.clear()
-        this.props.history.replace('/')
-      }
-    
-
+  signOut = event => {
+    localStorage.clear()
+    this.props.history.replace('/')
+  }
   render() {
     return (
-        <div style={{ width: '800px' }}>
+      <div>
+        <Header />
         <h2 className="ui center aligned icon header">
           <i className="circular teal users icon" />
-          Welcome again, {localStorage.getItem('username')}
+          Welcome , {localStorage.getItem('username')}
         </h2>
-
-        <button onClick={this.signOut} className="ui button">Sign out</button>
-        </div>
-
+        <Footer />
+      </div>
     )
   }
 }
+
+
 
 export default Main;
