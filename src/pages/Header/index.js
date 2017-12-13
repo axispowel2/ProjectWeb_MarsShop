@@ -9,15 +9,6 @@ class Header extends React.Component {
         }
         return (
             <div>
-                <Menu >
-                    <Menu.Item style={menuItem} name='test'>
-                        <a href='test'>test</a>
-                    </Menu.Item>
-                    <Menu.Item style={menuItem} name='signOut'>
-                        {localStorage.getItem('username')}
-                        <button onClick={this.signOut} className="ui button">Sign out</button>
-                    </Menu.Item>
-                </Menu>
                 This is Header
             </div>
         )
