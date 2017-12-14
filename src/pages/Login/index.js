@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { login } from '../../api'
+import { login, apigoogle } from '../../api'
 
 
 class Login extends React.Component {
@@ -73,7 +73,8 @@ class Login extends React.Component {
             </div>
           </form>
           <a href="/oauth/google">Log in with Google</a> &nbsp;
-          <a href="/oauth/facebook">Log in with twitter</a> &nbsp;
+          <a href="/oauth/facebook">Log in with facebok</a> &nbsp;
+          <button onClick={this.ongoogle}>0000000</button>
           <a href="/oauth/twitter">Log in with twitter</a> &nbsp;
         </div>
       </div>

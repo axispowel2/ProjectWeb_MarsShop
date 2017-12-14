@@ -33,3 +33,4 @@ export const getAllPosts = () => {
     .then(response => response.data)
     .catch(error => { throw (error.response) })
 }
+
