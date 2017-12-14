@@ -1,7 +1,8 @@
 import React from 'react';
-
 import { login } from '../../api'
+import { Icon, Button, Grid, Divider, Segment } from 'semantic-ui-react'
 
+import loginCss from './login.css'
 
 class Login extends React.Component {
 
@@ -22,20 +23,23 @@ class Login extends React.Component {
     event.preventDefault()
     login(this.state.username, this.state.password)
       .then(data => {
+        console.log(data.status + "sssss")
         if (data.status === 200) {
           localStorage.setItem('username', this.state.username)
           this.props.history.replace('/')
         }
+        console.log('sssss')
       })
   }
 
   render() {
+
     return (
       <div
         className='ui middle aligned center aligned grid'
-        style={{ padding: '50px 0 0 50px', width: '500px' }}>
+        style={{ padding: '50px 0 0 50px', width: '500px', margin: '5% 30%' }}>
         <div className='column'>
-          <h2 className='ui teal header'>Login</h2>
+          <h2 className='ui yellow huge header'>Login</h2>
           <form className='ui large form' onSubmit={this.onSubmit}>
             <div className='ui stacked segment'>
 
@@ -65,16 +69,28 @@ class Login extends React.Component {
 
               <div className='field'>
                 <div className='ui left icon input'>
-                  <button type='submit' className='ui teal fluid button'>
-                    Log in
-                  </button>
+                  <Segment padded>
+                    <Button primary fluid type='submit' className='ui teal fluid button'>
+                      Log in
+                  </Button>
+                    <Divider horizontal>Or</Divider>
+                    <Button secondary fluid href="/register">
+                      Register
+                  </Button>
+                  </Segment>
                 </div>
               </div>
             </div>
           </form>
-          <a href="/oauth/google">Log in with Google</a> &nbsp;
-          <a href="/oauth/facebook">Log in with twitter</a> &nbsp;
-          <a href="/oauth/twitter">Log in with twitter</a> &nbsp;
+          <Button color='facebook'>
+            <Icon name='facebook' /> Facebook
+                   </Button>
+          <Button color='twitter'>
+            <Icon name='twitter' /> Twitter
+                  </Button>
+          <Button color='google plus'>
+            <Icon name='google plus' href="/oauth/google" /> Google Plus
+                    </Button>
         </div>
       </div>
 
