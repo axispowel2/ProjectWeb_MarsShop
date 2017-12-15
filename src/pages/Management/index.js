@@ -1,9 +1,31 @@
 import React, { Component } from 'react';
 import localStorage from 'localStorage'
 import { Menu, Icon, input, Image, Divider, Segment, Advertisement, Header } from 'semantic-ui-react'
-import bg from '../bg.css'
+import Login from './../Login'
+//import { getUser,deleteuser } from '../../api'
 
-class ContactUs extends Component {
+
+class Management extends Component {
+    constructor() {
+        super();
+        this.state = {
+            i: 1,
+            user: []
+        };
+        //this.onSubmit = this.onSubmit.bind(this)
+    }
+
+    /*onSubmit(e) {
+
+        deleteuser(e.target.value)
+            .then(data => {
+                if (data.status === 200) {
+                    this.componentDidMount()
+                }
+            })
+    }*/
+
+
     signOut = event => {
         localStorage.clear()
         this.props.history.replace('/')
@@ -13,12 +35,19 @@ class ContactUs extends Component {
 
     handleItemClick = (e, { name }) => this.setState({ activeItem: name })
 
+
+    /* componentDidMount() {
+         getUser().then((data) => this.setState({ user: data }))
+     }*/
+
     render() {
         var menuItem = {
             weight: '10%',
         }
-        const { activeItem } = this.state
+        const userF = this.state.firstname
+        const user = this.state.username
 
+        const { activeItem } = this.state
         return (
             <div>
                 <Menu pointing inverted color='rgb(8, 0, 0)'>
@@ -34,28 +63,15 @@ class ContactUs extends Component {
                         </Menu.Item>
                     </Menu.Menu>
                 </Menu>
-
-
-
                 <br /><br />
-                <div>
-                    <Header as='h1' color='teal' text-align='center'>
-                        <Header.Content>
-                            Contact Us
-      </Header.Content>
-                        <br /><br />
-                        <Image src='http://www.thaiairvn.com/sites/default/files/Contact-us.jpg' size='massive' circular />
-                    </Header>
-                    <br />
+                {this.state.user.length >= 0 ?
+                    this.state.user.map(list => { list.firstName }
+                    ) : null
+                }
 
-                    <p><Icon fitted name='phone' /> : 081 113 4838</p>
-                    <p><Icon fitted name='facebook' /> : marsherotools</p>
-                    <p><Icon fitted name='mail' /> : marshero24@gmail.com</p>
-                </div>
             </div>
-
         )
     }
 }
 
-export default ContactUs;
+export default Management;

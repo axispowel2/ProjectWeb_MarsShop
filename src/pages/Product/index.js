@@ -37,8 +37,10 @@ class Product extends Component {
                     <Menu.Item name='Home' active={activeItem === 'Home'} onClick={this.handleItemClick} href='/' />
                     <Menu.Item name='Product' active={activeItem === 'Product'} onClick={this.handleItemClick} href='product' />
                     <Menu.Item name='Contact Us' active={activeItem === 'Contact Us'} onClick={this.handleItemClick} href='contact' />
+                    <Menu.Item name='Management' active={activeItem === 'Management'} onClick={this.handleItemClick} href='management' />
                     <Menu.Menu position='right'>
                         <Menu.Item style={menuItem} name='signOut'>
+                            <Icon name='user' />&nbsp;&nbsp;&nbsp;&nbsp;
                             {localStorage.getItem('username')}&nbsp;
 
               <button onClick={this.signOut} className="ui button">Sign out</button>

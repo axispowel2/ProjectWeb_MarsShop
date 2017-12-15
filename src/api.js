@@ -1,4 +1,5 @@
 import axios from 'axios'
+import fetch from 'isomorphic-fetch'
 import { error } from 'util';
 
 const axiosInstance = axios.create({
@@ -34,3 +35,26 @@ export const getAllPosts = () => {
     .catch(error => { throw (error.response) })
 }
 
+export const register = (firstName, lastName, username, password, email, phone) => {
+  const data = {
+    firstName: firstName,
+    lastName: lastName,
+    username: username,
+    password: password,
+    email: email,
+    phone: phone
+  }
+  return axiosInstance.post('api/user/signup', data)
+    .then(data => data)
+    .catch(error => error.response)
+}
+
+/*export const getUser = (firstName, username) => {
+  return axiosInstance.get('/api/user/getuser')
+    .then(response => response.data)
+}
+export const deleteuser = (data) => {
+  return axiosInstance.delete('/api/user/delete/' + data)
+    .then(data => data)
+
+}*/

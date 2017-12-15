@@ -26,6 +26,7 @@ class Login extends React.Component {
         console.log(data.status + "sssss")
         if (data.status === 200) {
           localStorage.setItem('username', this.state.username)
+          localStorage.setItem('status', this.state.username)
           this.props.history.replace('/')
         }
         console.log('sssss')

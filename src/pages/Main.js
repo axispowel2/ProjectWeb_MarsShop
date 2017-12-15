@@ -30,8 +30,10 @@ class Main extends Component {
           <Menu.Item name='Home' active={activeItem === 'Home'} onClick={this.handleItemClick} />
           <Menu.Item name='Product' active={activeItem === 'Product'} onClick={this.handleItemClick} href='product' />
           <Menu.Item name='Contact Us' active={activeItem === 'Contact Us'} onClick={this.handleItemClick} href='contact' />
+          <Menu.Item name='Management' active={activeItem === 'Management'} onClick={this.handleItemClick} href='management' />
           <Menu.Menu position='right'>
             <Menu.Item name='signOut'>
+              <Icon name='user' />&nbsp;&nbsp;&nbsp;&nbsp;
               {localStorage.getItem('username')}&nbsp;
 
               <button onClick={this.signOut} className="ui button">Sign out</button>
@@ -44,7 +46,7 @@ class Main extends Component {
           <Image src={src4} verticalAlign='top' class="top banner test ad" />
         </div>
         <br /><br />
-        <p class='adv'>MARS HERO เป็นอุปกรณ์เครื่องมือช่างต่างๆที่ทำจากวัสดุที่ดีและมีคุณภาพ</p>
+        <p class='adv'>MARS HERO ศูนย์รวมอุปกรณ์เครื่องมือช่างที่ทำจากวัสดุที่ดีและมีคุณภาพ</p>
 
         <Image align='left' src={src} size='medium' verticalAlign='top' circular />
         <Image src={src1} size='medium' verticalAlign='top' circular />

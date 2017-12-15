@@ -5,6 +5,7 @@ import Login from './pages/Login'
 import Contact from './pages/ContactUs'
 import product from './pages/Product'
 import Register from './pages/Register'
+import Management from './pages/Management'
 
 const Routes = () => {
     return (
@@ -18,6 +19,12 @@ const Routes = () => {
                         <Route exact path="/" component={Main} />
                         <Route exact path="/product" component={product} />
                         <Route exact path='/contact' component={Contact} />
+
+                        {localStorage.getItem('status') === 'adminyeen' ? (
+                            <Route exact path="/management" component={Management} />
+                        ) : (
+                                <Redirect to="/" />
+                            )}
                     </Switch>
                 )}
         </Switch>
