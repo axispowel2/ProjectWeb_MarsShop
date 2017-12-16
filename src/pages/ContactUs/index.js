@@ -25,6 +25,7 @@ class ContactUs extends Component {
                     <Menu.Item name='Home' active={activeItem === 'Home'} onClick={this.handleItemClick} href='/' />
                     <Menu.Item name='Product' active={activeItem === 'Product'} onClick={this.handleItemClick} href='product' />
                     <Menu.Item name='Contact Us' active={activeItem === 'Contact Us'} onClick={this.handleItemClick} href='contact' />
+                    <Menu.Item name='Board' active={activeItem === 'Board'} onClick={this.handleItemClick} href='Board' />
                     <Menu.Item name='Management' active={activeItem === 'Management'} onClick={this.handleItemClick} href='management' />
                     <Menu.Menu position='right'>
                         <Menu.Item style={menuItem} name='signOut'>
@@ -42,10 +43,11 @@ class ContactUs extends Component {
                     <Header as='h1' color='teal' text-align='center'>
                         <Header.Content>
                             Contact Us
-      </Header.Content>
+                    </Header.Content>
                         <br /><br />
-                        <Image src='http://www.thaiairvn.com/sites/default/files/Contact-us.jpg' size='massive' circular />
+
                     </Header>
+                    <Image src='https://i.imgur.com/H5rvT7D.png' size='medium' circular centered />
                     <br />
 
                     <p><Icon fitted name='phone' /> : 081 113 4838</p>

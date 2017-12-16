@@ -28,8 +28,10 @@ class Login extends React.Component {
           localStorage.setItem('username', this.state.username)
           localStorage.setItem('status', this.state.username)
           this.props.history.replace('/')
+        } else {
+          alert('Username or Password is invalid');
         }
-        console.log('sssss')
+        // console.log('sssss')
       })
   }
 
@@ -52,7 +54,7 @@ class Login extends React.Component {
                     name='username'
                     placeholder='Username'
                     value={this.state.username}
-                    onChange={this.onTextChange} />
+                    onChange={this.onTextChange} required />
                 </div>
               </div>
 
@@ -64,10 +66,9 @@ class Login extends React.Component {
                     name='password'
                     placeholder='Password'
                     value={this.state.password}
-                    onChange={this.onTextChange} />
+                    onChange={this.onTextChange} required />
                 </div>
               </div>
-
               <div className='field'>
                 <div className='ui left icon input'>
                   <Segment padded>
@@ -83,15 +84,6 @@ class Login extends React.Component {
               </div>
             </div>
           </form>
-          <Button color='facebook'>
-            <Icon name='facebook' /> Facebook
-                   </Button>
-          <Button color='twitter'>
-            <Icon name='twitter' /> Twitter
-                  </Button>
-          <Button color='google plus'>
-            <Icon name='google plus' href="/oauth/google" /> Google Plus
-                    </Button>
         </div>
       </div>
 

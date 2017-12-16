@@ -13,7 +13,7 @@ class Register extends Component {
             username: '',
             password: '',
             email: '',
-            phone: '',
+            tel: '',
             status: 'user'
         };
         this.onTextChange = this.onTextChange.bind(this)
@@ -90,7 +90,7 @@ class Register extends Component {
                         <div class="field">
                             <div class="required field">
                                 <div class="ui input">
-                                    <Form.Input label='Phone' type='tel' name='phone' placeholder='0912345678' width={7} onChange={this.onTextChange} required />
+                                    <Form.Input label='Phone' type='telephone' name='tel' placeholder='0912345678' width={7} onChange={this.onTextChange} required />
                                 </div>
                             </div>
                         </div>

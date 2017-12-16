@@ -30,6 +30,7 @@ class Main extends Component {
           <Menu.Item name='Home' active={activeItem === 'Home'} onClick={this.handleItemClick} />
           <Menu.Item name='Product' active={activeItem === 'Product'} onClick={this.handleItemClick} href='product' />
           <Menu.Item name='Contact Us' active={activeItem === 'Contact Us'} onClick={this.handleItemClick} href='contact' />
+          <Menu.Item name='Board' active={activeItem === 'Board'} onClick={this.handleItemClick} href='board' />
           <Menu.Item name='Management' active={activeItem === 'Management'} onClick={this.handleItemClick} href='management' />
           <Menu.Menu position='right'>
             <Menu.Item name='signOut'>

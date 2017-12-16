@@ -17,22 +17,21 @@ export const login = (username, password) => {
     .then(data => data)
     .catch(error => error.response)
 }
-export const publishPost = (title, content) => {
-  const data = {
-    title: title,
-    content: content,
-    user: { username: localStorage.getItem('username') }
+export const publishPost = (data) => {
+  const datas = {
+    content: data.content,
+    author: data.author
   }
 
-  return axiosInstance.post('api/post/create/', data)
+  return axiosInstance.post('api/post/create', datas)
     .then(data => data)
     .catch(error => error.response)
 }
 
 export const getAllPosts = () => {
-  return axiosInstance.get('/api/post/all/')
+  return axiosInstance.get('/api/post/all')
     .then(response => response.data)
-    .catch(error => { throw (error.response) })
+    .catch(error => error.response)
 }
 
 export const register = (firstName, lastName, username, password, email, phone) => {
@@ -49,12 +48,14 @@ export const register = (firstName, lastName, username, password, email, phone) 
     .catch(error => error.response)
 }
 
-/*export const getUser = (firstName, username) => {
+export const getAUser = () => {
   return axiosInstance.get('/api/user/getuser')
     .then(response => response.data)
+    .catch(error => error.response)
 }
-export const deleteuser = (data) => {
-  return axiosInstance.delete('/api/user/delete/' + data)
-    .then(data => data)
 
-}*/
+export const deleteUser = (data) => {
+  return axiosInstance.get('/api/user/deleteUser/' + data)
+    .then(data => data)
+    .catch(error => error.response)
+}

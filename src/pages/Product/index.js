@@ -37,6 +37,7 @@ class Product extends Component {
                     <Menu.Item name='Home' active={activeItem === 'Home'} onClick={this.handleItemClick} href='/' />
                     <Menu.Item name='Product' active={activeItem === 'Product'} onClick={this.handleItemClick} href='product' />
                     <Menu.Item name='Contact Us' active={activeItem === 'Contact Us'} onClick={this.handleItemClick} href='contact' />
+                    <Menu.Item name='Board' active={activeItem === 'Board'} onClick={this.handleItemClick} href='Board' />
                     <Menu.Item name='Management' active={activeItem === 'Management'} onClick={this.handleItemClick} href='management' />
                     <Menu.Menu position='right'>
                         <Menu.Item style={menuItem} name='signOut'>
@@ -54,6 +55,7 @@ class Product extends Component {
 
                     <Image align='left' src={src} size='medium' verticalAlign='top' />
                     <Image src={src1} size='medium' verticalAlign='top' />
+
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <Image src={src2} size='medium' verticalAlign='top' />
                     <Image align='right' src={src3} size='medium' verticalAlign='top' />

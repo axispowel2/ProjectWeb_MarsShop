@@ -1,30 +1,35 @@
 import React, { Component } from 'react';
 import localStorage from 'localStorage'
-import { Menu, Icon, input, Image, Divider, Segment, Advertisement, Header } from 'semantic-ui-react'
+import { Menu, Icon, input, Image, Divider, Segment, Button, Header, Table, Rating } from 'semantic-ui-react'
 import Login from './../Login'
-//import { getUser,deleteuser } from '../../api'
+import { getAUser, deleteUser } from '../../api'
 
 
 class Management extends Component {
+
     constructor() {
         super();
         this.state = {
-            i: 1,
-            user: []
-        };
-        //this.onSubmit = this.onSubmit.bind(this)
+            allUsers: []
+        }
+        this.getUsers = this.getUsers.bind(this)
+        this.onSubmit = this.onSubmit.bind(this)
+    }
+    onSubmit(e) {
+        deleteUser(e.target.name)
+            .then(this.getUsers())
+            .then(window.location.reload())
     }
 
-    /*onSubmit(e) {
+    getUsers = () => {
+        getAUser()
+            .then(data => this.setState({ allUsers: data }))
+            .catch(err => console.error('Something went wrong.'))
+    }
 
-        deleteuser(e.target.value)
-            .then(data => {
-                if (data.status === 200) {
-                    this.componentDidMount()
-                }
-            })
-    }*/
-
+    componentWillMount() { // when render finish call is func
+        this.getUsers()
+    }
 
     signOut = event => {
         localStorage.clear()
@@ -35,18 +40,11 @@ class Management extends Component {
 
     handleItemClick = (e, { name }) => this.setState({ activeItem: name })
 
-
-    /* componentDidMount() {
-         getUser().then((data) => this.setState({ user: data }))
-     }*/
-
     render() {
         var menuItem = {
             weight: '10%',
         }
-        const userF = this.state.firstname
-        const user = this.state.username
-
+        const users = this.state.allUsers
         const { activeItem } = this.state
         return (
             <div>
@@ -54,6 +52,7 @@ class Management extends Component {
                     <Menu.Item name='Home' active={activeItem === 'Home'} onClick={this.handleItemClick} href='/' />
                     <Menu.Item name='Product' active={activeItem === 'Product'} onClick={this.handleItemClick} href='product' />
                     <Menu.Item name='Contact Us' active={activeItem === 'Contact Us'} onClick={this.handleItemClick} href='contact' />
+                    <Menu.Item name='Board' active={activeItem === 'Board'} onClick={this.handleItemClick} href='Board' />
                     <Menu.Item name='Management' active={activeItem === 'Management'} onClick={this.handleItemClick} href='management' />
                     <Menu.Menu position='right'>
                         <Menu.Item style={menuItem} name='signOut'>
@@ -64,11 +63,33 @@ class Management extends Component {
                     </Menu.Menu>
                 </Menu>
                 <br /><br />
-                {this.state.user.length >= 0 ?
-                    this.state.user.map(list => { list.firstName }
-                    ) : null
-                }
 
+                <Table celled >
+                    <Table.Header>
+                        <Table.Row>
+                            <Table.HeaderCell singleLine >Username</Table.HeaderCell>
+                            <Table.HeaderCell>FirstName</Table.HeaderCell>
+                            <Table.HeaderCell >LastName</Table.HeaderCell>
+                            <Table.HeaderCell >Delete User</Table.HeaderCell>
+                        </Table.Row>
+                    </Table.Header>
+                    <Table.Body>
+                        {users.length >= 0 ?
+                            users.map(user =>
+
+                                <Table.Row>
+                                    <Table.Cell width='4' singleLine>{user.username}</Table.Cell>
+                                    <Table.Cell width='4' singleLine>{user.firstName}</Table.Cell>
+                                    <Table.Cell width='4' singleLine>{user.lastName}</Table.Cell>
+                                    <Table.Cell width='4'>
+                                        <Button name={user.username} onClick={this.onSubmit} ><Icon name='user' /> Delete User</Button>
+                                    </Table.Cell>
+                                </Table.Row>
+                            )
+                            : null
+                        }
+                    </Table.Body>
+                </Table >
             </div>
         )
     }
